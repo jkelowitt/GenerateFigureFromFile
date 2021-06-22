@@ -80,7 +80,7 @@ if __name__ == "__main__":
     print("GenerateFigureFromFile".center(50, "~"))
     print("Author: Jackson Elowitt")
     print("Repo: https://github.com/jkelowitt/GenerateFigureFromFile")
-    print("Version: v1")
+    print("Version: v2")
     print("".center(50, "~"))
 
     main()
