@@ -61,7 +61,7 @@ def main():
 
     print("\nYou will be asked for an Azimuth and an Elevation.")
     print("These values can be found in the bottom right of the interactive view.\n")
-    show_example = yes_no("Show an interactive sample")
+    show_example = yes_no("Show an interactive view")
 
     if show_example:
         molecule = make_molecule_from_file(files[0], directory)
