@@ -1,10 +1,12 @@
 """
 @Author: Jackson K Elowitt
-@Start Date: May 14, 2021
+@Start Date: June 21, 2021
 @Contact: jkelowitt@protonmail.com
 @Site: https://github.com/jkelowitt/GenerateFigureFromFile
 """
 from glob import glob
+
+from tqdm import tqdm
 
 from classes import Molecule, Atom
 from functions import verified_input, show_structure, save_structure
@@ -12,6 +14,7 @@ from parsing import parse_geom_from_log, parse_geom_from_xyz, parse_geom_from_co
 
 
 def make_molecule_from_file(file, directory):
+    """Converts a file to python representation"""
     parsing_dict = {
         "log": parse_geom_from_log,
         "xyz": parse_geom_from_xyz,
@@ -68,7 +71,7 @@ def main():
     degree = verified_input("Choose the Elevation: ", verify=float)
 
     # Select the parsing function based on the extension, then parse.
-    for file in files:
+    for file in tqdm(files, desc="Saving Files", dynamic_ncols=True):
         molecule = make_molecule_from_file(file, directory)
         save_structure(molecule, output=output_dir, azi=azimuth, ele=degree)
 
